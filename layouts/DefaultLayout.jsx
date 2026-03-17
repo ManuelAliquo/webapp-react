@@ -35,6 +35,7 @@ export default function DefaultLayout() {
           </div>
         </nav>
       </header>
+
       <main className="container py-4">
         <Outlet />
       </main>
