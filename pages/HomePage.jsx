@@ -1,15 +1,17 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import MovieCard from "../components/movieCard";
 
 export default function HomePage() {
-  useEffect(fetchMovies, []);
+  const [movies, setMovies] = useState([]);
 
+  // movies fetch
+  useEffect(fetchMovies, []);
   function fetchMovies() {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/movies`)
       .then((res) => {
-        console.log(res.data.result);
+        setMovies(res.data.result);
       })
       .catch((error) => {
         console.error("Failed to fetch movies:", error);
@@ -18,12 +20,14 @@ export default function HomePage() {
 
   return (
     <>
-      <h1 className="mb-5">Home Page</h1>
+      <h1 className="mb-4">Movies List</h1>
 
       <div className="row row-cols-5">
-        <div className="col">
-          <MovieCard />
-        </div>
+        {movies.map((movie) => (
+          <div className="col" key={movie.id}>
+            <MovieCard movie={movie} />
+          </div>
+        ))}
       </div>
     </>
   );

@@ -25,18 +25,13 @@ export default function DefaultLayout() {
                     Home
                   </NavLink>
                 </li>
-                <li className="nav-item">
-                  <NavLink to="/:id" className="nav-link">
-                    Movies
-                  </NavLink>
-                </li>
               </ul>
             </div>
           </div>
         </nav>
       </header>
 
-      <main className="container py-4">
+      <main className="container py-5">
         <Outlet />
       </main>
     </>
