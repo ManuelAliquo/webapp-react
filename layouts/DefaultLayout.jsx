@@ -4,8 +4,8 @@ export default function DefaultLayout() {
   return (
     <>
       <header>
-        <nav className="navbar navbar-expand-lg bg-body-tertiary">
-          <div className="container">
+        <nav className="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+          <div className="container ">
             <h3 className="navbar-brand mb-0">Movies</h3>
             <button
               className="navbar-toggler"
@@ -31,7 +31,7 @@ export default function DefaultLayout() {
         </nav>
       </header>
 
-      <main className="container py-5">
+      <main className="container py-4">
         <Outlet />
       </main>
     </>

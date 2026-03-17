@@ -20,58 +20,66 @@ export default function DetailPage() {
   }
 
   return (
-    <div className="row">
-      <div className="col-4">
-        <img className="img-fluid" src={movie.image} alt="Movie Cover" />
-      </div>
-      <div className="col-8">
-        {/* infos */}
-        <section className="movie-info">
-          <h3>{movie.title}</h3>
-          <h5 className="mt-3">Genre and Year:</h5>
-          <div>
-            {movie.genre} - {movie.release_year}
+    <>
+      <div className="row">
+        <div className="col-12 col-sm-7 col-md-6 col-lg-5 col-xl-4">
+          {/* poster */}
+          <div className="poster-container mb-2">
+            <img className="img-fluid rounded-3" src={movie.image} alt="Movie Cover" />
           </div>
-          <h5 className="mt-3">Director:</h5>
-          <div>{movie.director}</div>
-          <h5 className="mt-3">Description:</h5>
-          <p>{movie.abstract}</p>
-        </section>
-        {/* reviews */}
-        <section className="movie-reviews">
-          <div className="accordion mt-4" id="reviewsAccordion">
-            {movie.reviews?.map((review) => (
-              <div className="accordion-item" key={review.id}>
-                <h2 className="accordion-header">
-                  <button
-                    className="accordion-button collapsed"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target={`#collapse-${review.id}`}
-                    aria-expanded="false"
-                    aria-controls={`collapse-${review.id}`}
+        </div>
+        <div className="col-12 col-sm-5 col-md-6 col-lg-7 col-xl-8 movie-info-column">
+          {/* infos */}
+          <section className="movie-info">
+            <div className="main-info-sect">
+              <span className="fs-2 fw-semibold">{movie.title} </span>
+              <span>
+                - {movie.genre} - {movie.release_year}
+              </span>
+            </div>
+            <div className="director-sect mt-2">
+              <span className="fs-5 fw-semibold">Director: </span>
+              <span>{movie.director}</span>
+            </div>
+            <h5 className="mt-2">Description:</h5>
+            <p>{movie.abstract}</p>
+          </section>
+          {/* reviews */}
+          <section className="movie-reviews">
+            <div className="accordion mt-4" id="reviewsAccordion">
+              {movie.reviews?.map((review) => (
+                <div className="accordion-item" key={review.id}>
+                  <h2 className="accordion-header">
+                    <button
+                      className="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target={`#collapse-${review.id}`}
+                      aria-expanded="false"
+                      aria-controls={`collapse-${review.id}`}
+                    >
+                      Review by: {review.name}
+                    </button>
+                  </h2>
+                  <div
+                    id={`collapse-${review.id}`}
+                    className="accordion-collapse collapse"
+                    aria-labelledby="heading"
+                    data-bs-parent="#reviewsAccordion"
                   >
-                    Review by: {review.name}
-                  </button>
-                </h2>
-                <div
-                  id={`collapse-${review.id}`}
-                  className="accordion-collapse collapse"
-                  aria-labelledby="heading"
-                  data-bs-parent="#reviewsAccordion"
-                >
-                  <div className="accordion-body">
-                    <div className="mb-2">
-                      <strong>Rating:</strong> {review.vote}/5
+                    <div className="accordion-body">
+                      <div className="mb-2">
+                        <strong>Rating:</strong> {review.vote}/5
+                      </div>
+                      <p>{review.text}</p>
                     </div>
-                    <p>{review.text}</p>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </section>
+              ))}
+            </div>
+          </section>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
