@@ -26,7 +26,7 @@ export default function DefaultLayout() {
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink to="" className="nav-link">
+                  <NavLink to="/:id" className="nav-link">
                     Movies
                   </NavLink>
                 </li>
