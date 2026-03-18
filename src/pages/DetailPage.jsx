@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 
+import ReviewsAccordion from "../components/ReviewsAccordion";
+
 export default function DetailPage() {
   const [movie, setMovie] = useState({});
   const { id } = useParams();
@@ -12,6 +14,7 @@ export default function DetailPage() {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/movies/${id}`)
       .then((res) => {
+        console.log(res.data.result);
         setMovie(res.data.result);
       })
       .catch((err) => {
@@ -46,37 +49,7 @@ export default function DetailPage() {
           </section>
           {/* reviews */}
           <section className="movie-reviews mt-3">
-            <div className="accordion" id="reviewsAccordion">
-              {movie.reviews?.map((review) => (
-                <div className="accordion-item" key={review.id}>
-                  <h2 className="accordion-header">
-                    <button
-                      className="accordion-button collapsed"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target={`#collapse-${review.id}`}
-                      aria-expanded="false"
-                      aria-controls={`collapse-${review.id}`}
-                    >
-                      Review by: {review.name}
-                    </button>
-                  </h2>
-                  <div
-                    id={`collapse-${review.id}`}
-                    className="accordion-collapse collapse"
-                    aria-labelledby="heading"
-                    data-bs-parent="#reviewsAccordion"
-                  >
-                    <div className="accordion-body">
-                      <div className="mb-2">
-                        <strong>Rating:</strong> {review.vote}/5
-                      </div>
-                      <p>{review.text}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <ReviewsAccordion movie={movie} />
           </section>
         </div>
       </div>

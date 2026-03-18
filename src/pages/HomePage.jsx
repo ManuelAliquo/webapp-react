@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import MovieCard from "../components/movieCard";
+import MovieCard from "../components/MovieCard";
 
 export default function HomePage() {
   const [movies, setMovies] = useState([]);
@@ -11,6 +11,7 @@ export default function HomePage() {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/movies`)
       .then((res) => {
+        console.log(res.data.result);
         setMovies(res.data.result);
       })
       .catch((err) => {
