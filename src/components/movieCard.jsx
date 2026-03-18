@@ -10,7 +10,7 @@ export default function MovieCard({ movie }) {
           {movie.genre} - {movie.release_year}
         </div>
         <div className="card-text">{movie.director}</div>
-        <Link to={`/${movie.id}`} className="btn btn-primary mt-2">
+        <Link to={`/${movie.id}`} className="btn btn-dark mt-2">
           See more
         </Link>
       </div>

@@ -1,5 +1,10 @@
 .movie-card {
   background-color: #f7f8f9;
+  transition: all 0.1s;
+}
+
+.movie-card:hover {
+  scale: 1.02;
 }
 
 .movie-card > .card-img {
@@ -12,6 +17,7 @@
 
 .poster-container > img {
   aspect-ratio: 2/3;
+  box-shadow: 0px 0px 10px;
 }
 
 @media (min-width: 576px) {

@@ -6,7 +6,7 @@ export default function DetailPage() {
   const [movie, setMovie] = useState({});
   const { id } = useParams();
 
-  // movie fetch
+  // movie detail fetch
   useEffect(fetchMovie, []);
   function fetchMovie() {
     axios
@@ -14,8 +14,8 @@ export default function DetailPage() {
       .then((res) => {
         setMovie(res.data.result);
       })
-      .catch((error) => {
-        console.error("Failed to fetch movies:", error);
+      .catch((err) => {
+        console.error("Failed to fetch movie detail:", err);
       });
   }
 
@@ -45,8 +45,8 @@ export default function DetailPage() {
             <p>{movie.abstract}</p>
           </section>
           {/* reviews */}
-          <section className="movie-reviews">
-            <div className="accordion mt-4" id="reviewsAccordion">
+          <section className="movie-reviews mt-3">
+            <div className="accordion" id="reviewsAccordion">
               {movie.reviews?.map((review) => (
                 <div className="accordion-item" key={review.id}>
                   <h2 className="accordion-header">

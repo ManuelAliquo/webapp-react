@@ -13,8 +13,8 @@ export default function HomePage() {
       .then((res) => {
         setMovies(res.data.result);
       })
-      .catch((error) => {
-        console.error("Failed to fetch movies:", error);
+      .catch((err) => {
+        console.error("Failed to fetch movies:", err);
       });
   }
 
