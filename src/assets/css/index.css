@@ -21,11 +21,18 @@
 
 .poster-container {
   aspect-ratio: 2/3;
+  display: flex;
+  justify-content: center;
 }
 
 .poster-container > img {
   aspect-ratio: 2/3;
   box-shadow: 0px 0px 10px;
+}
+
+#reviewsAccordion {
+  max-height: 300px;
+  overflow-y: auto;
 }
 
 #reviewsAccordion .review-username {

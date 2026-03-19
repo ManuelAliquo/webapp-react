@@ -7,16 +7,12 @@ export default function HomePage() {
 
   // movies fetch
   useEffect(fetchMovies, []);
+
   function fetchMovies() {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/movies`)
-      .then((res) => {
-        console.log(res.data.result);
-        setMovies(res.data.result);
-      })
-      .catch((err) => {
-        console.error("Failed to fetch movies:", err);
-      });
+      .then((res) => setMovies(res.data.result))
+      .catch((err) => console.error("Failed to fetch movies:", err));
   }
 
   return (

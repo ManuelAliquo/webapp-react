@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 
 import ReviewsAccordion from "../components/ReviewsAccordion";
+import ReviewsForm from "../components/ReviewsForm";
 
 export default function DetailPage() {
   const [movie, setMovie] = useState({});
@@ -10,16 +11,12 @@ export default function DetailPage() {
 
   // movie detail fetch
   useEffect(fetchMovie, []);
+
   function fetchMovie() {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/movies/${id}`)
-      .then((res) => {
-        console.log(res.data.result);
-        setMovie(res.data.result);
-      })
-      .catch((err) => {
-        console.error("Failed to fetch movie detail:", err);
-      });
+      .then((res) => setMovie(res.data.result))
+      .catch((err) => console.error("Failed to fetch movie detail:", err));
   }
 
   return (
@@ -52,6 +49,10 @@ export default function DetailPage() {
             <ReviewsAccordion movie={movie} />
           </section>
         </div>
+        {/* reviews form */}
+        <section className="mt-3">
+          <ReviewsForm movieId={id} afterFormSubmit={fetchMovie} />
+        </section>
       </div>
     </>
   );
