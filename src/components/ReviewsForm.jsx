@@ -45,6 +45,7 @@ export default function ReviewsForm({ movieId, afterFormSubmit }) {
             value={formData.name}
             onChange={handleFormChange}
             name="name"
+            required
             //
             className="form-control mb-2"
             type="text"
@@ -57,6 +58,7 @@ export default function ReviewsForm({ movieId, afterFormSubmit }) {
             value={formData.vote}
             onChange={handleFormChange}
             name="vote"
+            required
             //
             className="form-control mb-2"
             type="number"
@@ -71,6 +73,7 @@ export default function ReviewsForm({ movieId, afterFormSubmit }) {
             value={formData.text}
             onChange={handleFormChange}
             name="text"
+            required
             //
             className="form-control"
             type="text"
