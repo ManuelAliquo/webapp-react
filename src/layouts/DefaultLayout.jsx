@@ -1,5 +1,7 @@
 import { Outlet, NavLink } from "react-router";
 
+import Loader from "../components/Loader";
+
 export default function DefaultLayout() {
   return (
     <>
@@ -56,6 +58,8 @@ export default function DefaultLayout() {
       </header>
 
       <main className="container py-4">
+        {/* <Loader /> */}
+
         <Outlet />
       </main>
     </>
