@@ -5,7 +5,7 @@ import { useParams } from "react-router";
 import ReviewsAccordion from "../components/ReviewsAccordion";
 import ReviewsForm from "../components/ReviewsForm";
 
-export default function DetailPage() {
+export default function MovieDetailPage() {
   const [movie, setMovie] = useState({});
   const { id } = useParams();
 

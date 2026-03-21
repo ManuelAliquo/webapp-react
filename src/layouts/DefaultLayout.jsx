@@ -3,10 +3,10 @@ import { Outlet, NavLink } from "react-router";
 export default function DefaultLayout() {
   return (
     <>
-      <header>
+      <header className="sticky-top">
         <nav className="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
-          <div className="container ">
-            <h3 className="navbar-brand mb-0">Movies</h3>
+          <div className="container">
+            <h1 className="navbar-brand fs-2 mb-0">Movies</h1>
             <button
               className="navbar-toggler"
               type="button"
@@ -19,32 +19,30 @@ export default function DefaultLayout() {
               <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarNav">
-              <ul className="navbar-nav ms-auto gap-2">
+              <ul className="navbar-nav align-items-end ms-auto gap-1">
                 <li className="nav-item">
                   <NavLink to="/" className="nav-link">
                     Home
                   </NavLink>
                 </li>
-                <li className="nav-item dropdown">
-                  <a
-                    className="nav-link dropdown-toggle"
-                    href="#"
-                    role="button"
+                <li className="nav-item dropdown d-flex align-items-center">
+                  <button
+                    className="btn btn-outline-light dropdown-toggle"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
                     Actions
-                  </a>
-                  <ul className="dropdown-menu">
+                  </button>
+                  <ul className="dropdown-menu dropdown-menu-end position-absolute">
                     <li className="dropdown-item">
-                      <div className="form-check form-switch mb-0">
+                      <div className="form-check form-switch d-flex gap-2 mb-0 ms-1">
                         <input
                           className="form-check-input"
                           type="checkbox"
                           role="switch"
-                          id="switchCheckDefault"
+                          id="dark-mode-switch"
                         />
-                        <label htmlFor="switchCheckDefault">
+                        <label className="flex-grow-1" htmlFor="dark-mode-switch">
                           <i className="bi bi-moon-stars-fill"></i>
                         </label>
                       </div>

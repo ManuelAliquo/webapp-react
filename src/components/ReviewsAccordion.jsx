@@ -23,11 +23,9 @@ export default function ReviewsAccordion({ movie }) {
             aria-labelledby="heading"
             data-bs-parent="#reviewsAccordion"
           >
-            <div className="accordion-body">
-              <div className="mb-2">
-                <strong>Rating:</strong> {<Rating vote={review.vote} maxVote="5" />}
-              </div>
-              <p className="mb-0">{review.text}</p>
+            <div className="accordion-body mb-2">
+              <strong>Rating:</strong> {<Rating vote={review.vote} maxVote="5" />}
+              <p className="mb-0 mt-1">{review.text}</p>
             </div>
           </div>
         </div>

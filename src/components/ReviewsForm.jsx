@@ -24,10 +24,11 @@ export default function ReviewsForm({ movieId, afterFormSubmit }) {
 
     axios
       .post(`${import.meta.env.VITE_BACKEND_URL}/movies/${movieId}/review`, formData)
-      .then((res) => afterFormSubmit())
+      .then((res) => {
+        afterFormSubmit();
+        setFormData(initialFormData);
+      })
       .catch((err) => console.error("Failed to send review:", err));
-
-    setFormData(initialFormData);
   };
 
   return (

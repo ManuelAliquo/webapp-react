@@ -1,3 +1,7 @@
+.navbar-collapse {
+  transition: all 0.1s;
+}
+
 .movie-card {
   transition: all 0.1s;
 }
@@ -17,6 +21,15 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.movie-card .btn {
+  width: 100px;
+  transition: all 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.movie-card .btn:hover {
+  width: 100%;
 }
 
 .poster-container {
