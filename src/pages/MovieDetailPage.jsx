@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 
 import ReviewsAccordion from "../components/ReviewsAccordion";
 import ReviewsForm from "../components/ReviewsForm";
+import MovieDetailCard from "../components/MovieDetailsCard";
 
 // use contexts
 import { useLoaderContext } from "../contexts/LoaderContext";
@@ -39,18 +40,7 @@ export default function MovieDetailPage() {
         <div className="col-12 col-sm-5 col-md-6 col-lg-7 col-xl-8 movie-info-column">
           {/* infos */}
           <section className="movie-info-sect">
-            <div>
-              <span className="fs-2 fw-semibold">{movie.title} </span>
-              <span>
-                - {movie.genre} - {movie.release_year}
-              </span>
-            </div>
-            <div className="director-sect mt-2">
-              <span className="fs-5 fw-semibold">Director: </span>
-              <span>{movie.director}</span>
-            </div>
-            <h5 className="mt-2">Description:</h5>
-            <p>{movie.abstract}</p>
+            <MovieDetailCard movie={movie} />
           </section>
           {/* reviews */}
           <section className="movie-reviews mt-3">
@@ -58,7 +48,7 @@ export default function MovieDetailPage() {
           </section>
         </div>
         {/* reviews form */}
-        <section className="mt-3">
+        <section className="mt-3 d-flex justify-content-center align-items-center">
           <ReviewsForm movieId={id} afterFormSubmit={fetchMovieDetails} />
         </section>
       </div>

@@ -33,7 +33,7 @@ export default function ReviewsForm({ movieId, afterFormSubmit }) {
 
   return (
     <>
-      <form onSubmit={formSubmit} className="card rounded-3">
+      <form onSubmit={formSubmit} className="card rounded-3" id="reviewsForm">
         <div className="card_header rounded-top-3 bg-dark text-white p-3">
           <h2 className="mb-1">Leave a Review</h2>
         </div>

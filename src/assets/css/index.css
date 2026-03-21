@@ -63,11 +63,27 @@
   z-index: 100;
 }
 
+#reviewsForm {
+  width: 100%;
+}
+
 @media (min-width: 576px) {
   .movie-info-column {
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding-bottom: 3rem;
+  }
+}
+
+@media (min-width: 768px) {
+  #reviewsForm {
+    width: 85%;
+  }
+}
+
+@media (min-width: 992px) {
+  #reviewsForm {
+    width: 75%;
   }
 }
