@@ -1,8 +1,11 @@
 import { Outlet, NavLink } from "react-router";
 
 import Loader from "../components/Loader";
+import { useLoaderContext } from "../contexts/LoaderContext";
 
 export default function DefaultLayout() {
+  const { isLoading } = useLoaderContext();
+
   return (
     <>
       <header className="sticky-top">
@@ -58,7 +61,7 @@ export default function DefaultLayout() {
       </header>
 
       <main className="container py-4">
-        {/* <Loader /> */}
+        {isLoading && <Loader />}
 
         <Outlet />
       </main>

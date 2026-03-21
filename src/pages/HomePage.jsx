@@ -2,17 +2,25 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import MovieCard from "../components/MovieCard";
 
+// use contexts
+import { useLoaderContext } from "../contexts/LoaderContext";
+
 export default function HomePage() {
+  const { setIsLoading } = useLoaderContext();
+
   const [movies, setMovies] = useState([]);
 
   // movies fetch
   useEffect(fetchMovies, []);
 
   function fetchMovies() {
+    setIsLoading(true);
+
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/movies`)
       .then((res) => setMovies(res.data.result))
-      .catch((err) => console.error("Failed to fetch movies:", err));
+      .catch((err) => console.error("Failed to fetch movies:", err))
+      .finally(() => setIsLoading(false));
   }
 
   return (
