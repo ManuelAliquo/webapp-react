@@ -2,11 +2,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 
-import ReviewsAccordion from "../components/ReviewsAccordion";
-import ReviewsForm from "../components/ReviewsForm";
-import MovieDetailCard from "../components/MovieDetailsCard";
+// component imports
+import ReviewsAccordion from "../components/reviews/ReviewsAccordion";
+import ReviewsForm from "../components/reviews/ReviewsForm";
+import MovieDetailCard from "../components/movies/MovieDetailsCard";
 
-// use contexts
+// useContext imports
 import { useLoaderContext } from "../contexts/LoaderContext";
 
 export default function MovieDetailPage() {

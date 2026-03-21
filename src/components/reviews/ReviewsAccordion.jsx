@@ -1,4 +1,4 @@
-import Rating from "./Rating";
+import Rating from "../ui/Rating";
 
 export default function ReviewsAccordion({ movie }) {
   return (

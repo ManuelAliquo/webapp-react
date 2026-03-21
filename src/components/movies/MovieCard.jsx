@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 
-import Rating from "./Rating";
+import Rating from "../ui/Rating";
 
 export default function MovieCard({ movie }) {
   return (

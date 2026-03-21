@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
 import axios from "axios";
-import MovieCard from "../components/MovieCard";
+import { useEffect, useState } from "react";
 
-// use contexts
+// component imports
+import MovieCard from "../components/movies/MovieCard";
+
+// useContext imports
 import { useLoaderContext } from "../contexts/LoaderContext";
 
 export default function HomePage() {

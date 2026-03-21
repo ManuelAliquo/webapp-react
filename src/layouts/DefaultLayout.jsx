@@ -1,6 +1,9 @@
 import { Outlet, NavLink } from "react-router";
 
-import Loader from "../components/Loader";
+// component imports
+import Loader from "../components/ui/Loader";
+
+// useContext import
 import { useLoaderContext } from "../contexts/LoaderContext";
 
 export default function DefaultLayout() {

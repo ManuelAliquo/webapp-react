@@ -10,6 +10,7 @@ const initialFormData = {
 export default function ReviewsForm({ movieId, afterFormSubmit }) {
   const [formData, setFormData] = useState(initialFormData);
 
+  // form change handler
   const handleFormChange = (e) => {
     const { name, value } = e.target;
 
@@ -19,6 +20,7 @@ export default function ReviewsForm({ movieId, afterFormSubmit }) {
     });
   };
 
+  // form submit + post
   const formSubmit = (e) => {
     e.preventDefault();
 
