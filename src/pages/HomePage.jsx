@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 // useContext imports
 import { useLoaderContext } from "../contexts/LoaderContext";
 import { useNotificationContext } from "../contexts/NotificationContext";
+import { useThemeContext } from "../contexts/ThemeContext";
 
 // component imports
 import MovieCard from "../components/movies/MovieCard";
@@ -11,6 +12,7 @@ import MovieCard from "../components/movies/MovieCard";
 export default function HomePage() {
   const { setIsLoading } = useLoaderContext();
   const { setNotificationShow, setAlertFields } = useNotificationContext();
+  const { titleColorClass } = useThemeContext();
 
   const [movies, setMovies] = useState([]);
 
@@ -38,7 +40,7 @@ export default function HomePage() {
   if (movies.length > 0)
     return (
       <>
-        <h1 className="mb-4">Movies List</h1>
+        <h1 className={`mb-4 ${titleColorClass}`}>Movies List</h1>
         <div className="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-3">
           {movies.map((movie) => (
             <div className="col" key={movie.id}>

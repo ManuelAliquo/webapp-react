@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 // useContext imports
 import { useParams } from "react-router";
 import { useNotificationContext } from "../contexts/NotificationContext";
+import { useThemeContext } from "../contexts/ThemeContext";
 
 // component imports
 import ReviewsAccordion from "../components/reviews/ReviewsAccordion";
@@ -15,6 +16,7 @@ import { useLoaderContext } from "../contexts/LoaderContext";
 export default function MovieDetailPage() {
   const { setIsLoading } = useLoaderContext();
   const { setNotificationShow, setAlertFields } = useNotificationContext();
+  const { titleColorClass } = useThemeContext();
 
   const [movie, setMovie] = useState({});
   const { id } = useParams();
@@ -57,7 +59,7 @@ export default function MovieDetailPage() {
             </section>
             {/* reviews */}
             <section className="movie-reviews mt-3">
-              <h2 className="h3 ms-1">Reviews</h2>
+              <h2 className={`h3 ms-1 ${titleColorClass}`}>Reviews</h2>
               <ReviewsAccordion movie={movie} />
             </section>
           </div>

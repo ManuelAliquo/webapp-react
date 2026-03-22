@@ -72,6 +72,7 @@ export default function ReviewsForm({ movieId, afterFormSubmit }) {
             className="form-control mb-2"
             type="text"
             id="name"
+            placeholder="Digit username"
           />
           <label className="form-label" htmlFor="vote">
             Vote
@@ -85,6 +86,7 @@ export default function ReviewsForm({ movieId, afterFormSubmit }) {
             className="form-control mb-2"
             type="number"
             id="vote"
+            placeholder="From 1 to 5"
             min={1}
             max={5}
           />
@@ -100,6 +102,7 @@ export default function ReviewsForm({ movieId, afterFormSubmit }) {
             className="form-control"
             type="text"
             id="text"
+            placeholder="Digit your Review"
           />
           <div className="d-flex justify-content-end pt-3 pe-3">
             <button className="btn btn-secondary">Send review</button>

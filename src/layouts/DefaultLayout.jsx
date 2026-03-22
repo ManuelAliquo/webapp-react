@@ -3,6 +3,7 @@ import { Outlet, NavLink } from "react-router";
 // useContext import
 import { useLoaderContext } from "../contexts/LoaderContext";
 import { useNotificationContext } from "../contexts/NotificationContext";
+import { useThemeContext } from "../contexts/ThemeContext";
 
 // component imports
 import Loader from "../components/ui/Loader";
@@ -11,12 +12,17 @@ import NotificationAlert from "../components/ui/NotificationAlert";
 export default function DefaultLayout() {
   const { isLoading } = useLoaderContext();
   const { notificationShow } = useNotificationContext();
+  const { isDark, toggleTheme } = useThemeContext();
+
+  const bodyElement = document.querySelector("body");
+  if (isDark) bodyElement.classList.add("bg-dark");
+  if (!isDark) bodyElement.classList.remove("bg-dark");
 
   return (
     <>
       {/* header */}
       <header className="sticky-top">
-        <nav className="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+        <nav className="navbar navbar-expand-lg bg-dark border-bottom" data-bs-theme="dark">
           <div className="container">
             <h1 className="navbar-brand fs-2 mb-0">Movies</h1>
             <button
@@ -49,6 +55,8 @@ export default function DefaultLayout() {
                     <li className="dropdown-item">
                       <div className="form-check form-switch d-flex gap-2 mb-0 ms-1">
                         <input
+                          onChange={toggleTheme}
+                          checked={isDark}
                           className="form-check-input"
                           type="checkbox"
                           role="switch"
