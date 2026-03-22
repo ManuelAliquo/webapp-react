@@ -1,16 +1,20 @@
 import { Outlet, NavLink } from "react-router";
 
-// component imports
-import Loader from "../components/ui/Loader";
-
 // useContext import
 import { useLoaderContext } from "../contexts/LoaderContext";
+import { useNotificationContext } from "../contexts/NotificationContext";
+
+// component imports
+import Loader from "../components/ui/Loader";
+import NotificationAlert from "../components/ui/NotificationAlert";
 
 export default function DefaultLayout() {
   const { isLoading } = useLoaderContext();
+  const { notificationShow } = useNotificationContext();
 
   return (
     <>
+      {/* header */}
       <header className="sticky-top">
         <nav className="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
           <div className="container">
@@ -62,9 +66,11 @@ export default function DefaultLayout() {
           </div>
         </nav>
       </header>
-
+      {/* main (loader, notifications)*/}
       <main className="container py-4">
         {isLoading && <Loader />}
+
+        {notificationShow && <NotificationAlert />}
 
         <Outlet />
       </main>

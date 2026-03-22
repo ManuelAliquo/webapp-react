@@ -1,5 +1,8 @@
 import axios from "axios";
-import { useState } from "react";
+import { useContext, useState } from "react";
+
+// useContext import
+import { useNotificationContext } from "../../contexts/NotificationContext";
 
 const initialFormData = {
   name: "",
@@ -9,6 +12,8 @@ const initialFormData = {
 
 export default function ReviewsForm({ movieId, afterFormSubmit }) {
   const [formData, setFormData] = useState(initialFormData);
+
+  const { setNotificationShow, setAlertFields } = useNotificationContext();
 
   // form change handler
   const handleFormChange = (e) => {
@@ -29,8 +34,22 @@ export default function ReviewsForm({ movieId, afterFormSubmit }) {
       .then((res) => {
         afterFormSubmit();
         setFormData(initialFormData);
+        setAlertFields({
+          type: "success",
+          icon: "check-circle-fill",
+          text: "Review posted successfully",
+        });
+        setNotificationShow(true);
       })
-      .catch((err) => console.error("Failed to send review:", err));
+      .catch((err) => {
+        setAlertFields({
+          type: "warning",
+          icon: "exclamation-triangle-fill",
+          text: "Failed to post your Review, try again later",
+        });
+        setNotificationShow(true);
+        console.error("Failed to send review:", err);
+      });
   };
 
   return (
